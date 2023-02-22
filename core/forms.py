@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate
 from .models import Internship, Scholarship
-from bootstrap_datepicker_plus import DatePickerInput
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 from django import forms
 
 class InternshipForm(forms.ModelForm):

@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #os.environ.get('DEBUG_VALUE')
+DEBUG = os.environ.get('DEBUG_VALUE')
 
 ALLOWED_HOSTS = ['https://flairnow.herokuapp.com/','https://www.flairnow.org/']
 
@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'crispy_forms',
     'storages',
-    'multiselectfield',
     'bootstrap4',
+    'multiselectfield',
+    'crispy_bootstrap5',
     'bootstrap_datepicker_plus',
 ]
 
@@ -109,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -127,11 +127,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-#Bootstrap styling for forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-BOOTSTRAP4 = {
-    'include_jquery': True,
-}
+#Bootstrap Styling
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 #Default user for application
 AUTH_USER_MODEL = 'users.User'
@@ -160,7 +158,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
-
+"""
 #HTTPS settings
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -170,7 +168,7 @@ SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 3153600 #1 year
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
+"""
 SITE_ID = 1
 
 django_heroku.settings(locals())
